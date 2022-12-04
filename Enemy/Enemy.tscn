@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/skin.material" type="Material" id=1]
 [ext_resource path="res://Assets/survivorMaleB.png" type="Texture" id=2]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Assets/knife_smooth.obj" type="ArrayMesh" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -4869,6 +4870,14 @@ bones/44/bound_children = [  ]
 mesh = SubResource( 2 )
 skin = SubResource( 3 )
 material/0 = SubResource( 4 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Root/Skeleton"]
+transform = Transform( -0.775853, 0.0896166, 0.624525, 0.58809, -0.255769, 0.767293, 0.228495, 0.962573, 0.145737, -0.667299, 1.45653, 0.553327 )
+bone_name = "right_hand_thumb_1"
+
+[node name="Knife" type="MeshInstance" parent="Root/Skeleton/BoneAttachment"]
+transform = Transform( 18.5604, 5.67576, 4.82665, -6.16529, 18.9748, 1.39513, -4.18332, -2.78259, 19.3586, 0.035, 0.3, -0.1 )
+mesh = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 5 )
